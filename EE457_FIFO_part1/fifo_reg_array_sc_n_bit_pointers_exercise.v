@@ -69,8 +69,8 @@ assign depth = wrptr - rdptr;
 
 // task #1: complete the two assign statements using as few and as small gates as possible 
 // (and using as few higher-order bits of depth as possible).
-assign raw_almost_full  = ( depth >= {1'b1, {(ADDR_WIDTH - 1){1'b0}}}  )  ? 1 : 0;
-assign raw_almost_empty = ( depth <= {1'b0, {(ADDR_WIDTH - 1){1'b1}}}  )  ? 1 : 0;
+assign raw_almost_full  = ( depth >= {1'b1, {(ADDR_WIDTH - 1){1'b0}}} )  ? 1 : 0;
+assign raw_almost_empty = ( depth <= {1'b0, {(ADDR_WIDTH - 1){1'b1}}} )  ? 1 : 0;
 
 
 always@(*)
@@ -111,9 +111,9 @@ begin
 			
 // task #4: complete set and reset of AE_AF_flag (zero means almost empty and one means almost full).
 			if (raw_almost_full)
-					AE_AF_flag <=   1'b0  ;
+					AE_AF_flag <=   1'b1  ;
 			if (raw_almost_empty)
-					AE_AF_flag <=   1'b1   ;
+					AE_AF_flag <=   1'b0   ;
 		end
 end
 
